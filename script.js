@@ -16,6 +16,14 @@ menuToggle.addEventListener('click', () => {
 mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
 document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
 
+document.querySelectorAll('a[href="#demo"]').forEach(link => {
+  link.addEventListener('click', () => {
+    if (typeof window.ym === 'function') {
+      window.ym(113593239, 'reachGoal', 'demo_click');
+    }
+  });
+});
+
 function makeSingleSelect(selector, onSelect) {
   const buttons = [...document.querySelectorAll(selector)];
   buttons.forEach(button => button.addEventListener('click', () => {
