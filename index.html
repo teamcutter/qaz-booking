@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8f5f0" />
+    <meta name="description" content="QazBooking — концепт онлайн-записи и CRM для салонов красоты, барбершопов, nail-студий и частных мастеров Казахстана." />
+    <title>QazBooking — запись и CRM для beauty-бизнеса</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти к содержанию</a>
+    <div class="site-shell">
+      <header class="site-header" id="top">
+        <div class="container header-inner">
+          <a class="brand" href="#top" aria-label="QazBooking — на главную">
+            <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+            <span>qaz<span class="brand-light">booking</span><span class="brand-dot">.</span></span>
+          </a>
+          <nav class="desktop-nav" aria-label="Основная навигация">
+            <a href="#possibilities">Возможности</a>
+            <a href="#how-it-works">Как работает</a>
+            <a href="#pricing">Тариф</a>
+            <a href="#faq">Вопросы</a>
+          </nav>
+          <a class="header-cta" href="#demo">Попробовать демо <span aria-hidden="true">↗</span></a>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Открыть меню">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильная навигация" hidden>
+          <a href="#possibilities">Возможности</a>
+          <a href="#how-it-works">Как работает</a>
+          <a href="#pricing">Тариф</a>
+          <a href="#faq">Вопросы</a>
+          <a href="#demo">Попробовать демо</a>
+        </nav>
+      </header>
+
+      <main id="main">
+        <section class="hero section-pad" aria-labelledby="hero-title">
+          <div class="container hero-grid">
+            <div class="hero-copy">
+              <div class="eyebrow"><span class="eyebrow-line"></span> КОНЦЕПТ ДЛЯ BEAUTY-БИЗНЕСА КАЗАХСТАНА</div>
+              <h1 id="hero-title">Красивый сервис начинается <em>с удобной записи.</em></h1>
+              <p class="hero-lead">QazBooking собирает расписание, клиентов и запись в одном месте. Меньше сообщений вручную — больше времени для работы, которую любят ваши гости.</p>
+              <div class="hero-actions">
+                <a class="button button-dark" href="#demo">Попробовать демо <span class="button-arrow" aria-hidden="true">↗</span></a>
+                <a class="text-link" href="#possibilities">Что внутри <span aria-hidden="true">↓</span></a>
+              </div>
+              <div class="hero-note"><span class="note-icon" aria-hidden="true">✦</span> Для салонов, барбершопов, студий и частных мастеров</div>
+            </div>
+
+            <div class="hero-visual" aria-label="Иллюстрация календаря QazBooking с записями клиентов">
+              <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+              <div class="visual-label"><span class="pulse-dot"></span> Всё под рукой</div>
+              <div class="dashboard-card">
+                <div class="dash-topbar">
+                  <span class="dash-logo"><span class="tiny-mark">✳</span> qazbooking<span class="brand-dot">.</span></span>
+                  <span class="dash-avatar">A</span>
+                </div>
+                <div class="dash-body">
+                  <div class="dash-side">
+                    <div class="dash-side-item active"><span class="side-symbol">▦</span> Календарь</div>
+                    <div class="dash-side-item"><span class="side-symbol">♡</span> Клиенты</div>
+                    <div class="dash-side-item"><span class="side-symbol">▥</span> Аналитика</div>
+                  </div>
+                  <div class="dash-content">
+                    <div class="dash-heading"><div><small>ПРИМЕР РАСПИСАНИЯ</small><strong>Среда, 14 октября</strong></div><span class="dash-more">•••</span></div>
+                    <div class="dash-stats"><div><span>Записей</span><strong>12</strong></div><div><span>Свободно</span><strong>4</strong></div><div><span>Мастеров</span><strong>3</strong></div></div>
+                    <div class="calendar-head"><span>Время</span><span>Айгерим</span><span>Дана</span></div>
+                    <div class="calendar-row"><span>10:00</span><div class="appointment appt-purple"><strong>Маникюр</strong><small>Алина К. · 60 мин</small></div><div></div></div>
+                    <div class="calendar-row"><span>11:00</span><div class="appointment appt-purple"><strong>Маникюр</strong><small>Продолжение</small></div><div class="appointment appt-peach"><strong>Стрижка</strong><small>Мадина С. · 45 мин</small></div></div>
+                    <div class="calendar-row"><span>12:00</span><div></div><div class="appointment appt-mint"><strong>Укладка</strong><small>Алия Т. · 60 мин</small></div></div>
+                    <div class="calendar-row"><span>13:00</span><div class="calendar-free">+ Свободно</div><div></div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="floating-card"><span class="floating-icon">✓</span><div><strong>Новая запись</strong><span>Алина записалась на 10:00</span></div></div>
+              <div class="visual-sparkle sparkle-a">✦</div><div class="visual-sparkle sparkle-b">✧</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="audience-strip" aria-label="Для кого создан QazBooking">
+          <div class="container audience-inner"><span class="audience-caption">ОДНА СИСТЕМА ДЛЯ</span><span>Салонов красоты</span><i></i><span>Барбершопов</span><i></i><span>Nail-студий</span><i></i><span>Частных мастеров</span></div>
+        </section>
+
+        <section class="problem-section section-pad" aria-labelledby="problem-title">
+          <div class="container problem-grid">
+            <div><div class="section-kicker">ЗНАКОМАЯ СИТУАЦИЯ?</div><h2 id="problem-title">Когда запись живёт в чатах, <em>легко потерять главное.</em></h2></div>
+            <div class="problem-content"><p>Клиент пишет в Instagram, уточняет время в WhatsApp, а свободное окно нужно искать в таблице. QazBooking задуман, чтобы весь путь от выбора услуги до визита был понятным и для гостя, и для команды.</p><div class="problem-pills"><span>Меньше ручной переписки</span><span>Понятное расписание</span><span>История клиента рядом</span></div></div>
+          </div>
+        </section>
+
+        <section class="features-section section-pad" id="possibilities" aria-labelledby="features-title">
+          <div class="container">
+            <div class="section-heading"><div><div class="section-kicker">ВОЗМОЖНОСТИ</div><h2 id="features-title">Всё, что нужно для <em>спокойного рабочего дня.</em></h2></div><p>От первой записи до повторного визита — основные процессы beauty-бизнеса в едином сервисе.</p></div>
+            <div class="feature-grid">
+              <article class="feature-card feature-card-large feature-booking"><div class="feature-icon">↗</div><div class="feature-copy"><span class="feature-number">01 / ЗАПИСЬ</span><h3>Клиент выбирает время сам</h3><p>Ссылка или QR-код ведёт на страницу записи, доступную в любое время.</p></div><div class="mini-booking"><div class="mini-booking-top"><span>Ваши услуги</span><span>↗</span></div><div class="mini-service"><span class="mini-service-icon">✳</span><span><strong>Маникюр</strong><small>60 минут</small></span><b>→</b></div><div class="mini-service"><span class="mini-service-icon peach">✦</span><span><strong>Стрижка</strong><small>45 минут</small></span><b>→</b></div></div></article>
+              <article class="feature-card feature-calendar"><div class="feature-icon">▦</div><span class="feature-number">02 / КОМАНДА</span><h3>Расписание без путаницы</h3><p>Календарь сотрудников показывает записи и свободные окна в одном обзоре.</p><div class="feature-bars"><span></span><span></span><span></span><span></span><span></span></div></article>
+              <article class="feature-card feature-clients"><div class="feature-icon">♡</div><span class="feature-number">03 / КЛИЕНТЫ</span><h3>Память о каждом госте</h3><p>Контакты, история посещений и заметки помогают сделать следующий визит личным.</p><div class="client-avatars"><span>А</span><span>М</span><span>Д</span><span>+</span></div></article>
+              <article class="feature-card"><div class="feature-icon">✳</div><span class="feature-number">04 / НАПОМИНАНИЯ</span><h3>Визит не потеряется</h3><p>Автоматические напоминания через WhatsApp, Telegram или SMS предусмотрены концепцией сервиса.</p></article>
+              <article class="feature-card"><div class="feature-icon">◫</div><span class="feature-number">05 / АНАЛИТИКА</span><h3>Цифры без таблиц</h3><p>Выручка, загрузка мастеров и повторные визиты — в понятном обзоре для владельца.</p></article>
+              <article class="feature-card"><div class="feature-icon">⌁</div><span class="feature-number">06 / ЛОКАЛЬНЫЙ РЫНОК</span><h3>Создан для Казахстана</h3><p>В концепции предусмотрены мобильный доступ и интеграции с местными платежами и картами.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section class="demo-section section-pad" id="demo" aria-labelledby="demo-title">
+          <div class="container demo-grid">
+            <div class="demo-copy"><div class="section-kicker">ПОПРОБУЙТЕ САМИ</div><h2 id="demo-title">Представьте себя <em>на месте клиента.</em></h2><p>Так может выглядеть запись по ссылке: услуга, удобный день и свободное время. Это интерактивный пример — реальный визит он не создаёт.</p><div class="demo-benefit"><span>01</span><div><strong>Без ожидания ответа</strong><small>Клиент видит доступные варианты сразу.</small></div></div><div class="demo-benefit"><span>02</span><div><strong>Всё понятно с первого шага</strong><small>Стоимость и длительность услуги перед глазами.</small></div></div></div>
+            <div class="booking-demo" aria-label="Демонстрация онлайн-записи">
+              <div class="booking-top"><div class="booking-logo"><span>✳</span> qazbooking<span class="brand-dot">.</span></div><span class="demo-badge">ДЕМО</span></div>
+              <div class="booking-body" id="booking-flow">
+                <div class="booking-title"><span>СТУДИЯ • ПРИМЕР</span><h3>Запишитесь на услугу</h3><p>Выберите то, что подходит именно вам</p></div>
+                <div class="booking-group"><div class="booking-label"><span>01</span><strong>Услуга</strong></div><div class="service-options" role="group" aria-label="Выберите услугу"><button class="service-option selected" type="button" data-service="Маникюр" data-duration="60 мин" data-price="8 000 ₸" aria-pressed="true"><span class="service-symbol">✳</span><span><strong>Маникюр</strong><small>60 мин · 8 000 ₸</small></span><span class="radio-dot"></span></button><button class="service-option" type="button" data-service="Стрижка" data-duration="45 мин" data-price="6 000 ₸" aria-pressed="false"><span class="service-symbol warm">✦</span><span><strong>Стрижка</strong><small>45 мин · 6 000 ₸</small></span><span class="radio-dot"></span></button></div></div>
+                <div class="booking-group"><div class="booking-label"><span>02</span><strong>День</strong></div><div class="day-options" role="group" aria-label="Выберите день"><button class="day-option selected" type="button" data-day="14 октября" aria-pressed="true"><small>СР</small><strong>14</strong></button><button class="day-option" type="button" data-day="15 октября" aria-pressed="false"><small>ЧТ</small><strong>15</strong></button><button class="day-option" type="button" data-day="16 октября" aria-pressed="false"><small>ПТ</small><strong>16</strong></button><button class="day-option" type="button" data-day="17 октября" aria-pressed="false"><small>СБ</small><strong>17</strong></button><button class="day-option" type="button" data-day="18 октября" aria-pressed="false"><small>ВС</small><strong>18</strong></button></div></div>
+                <div class="booking-group"><div class="booking-label"><span>03</span><strong>Время</strong></div><div class="time-options" role="group" aria-label="Выберите время"><button type="button" data-time="10:00" aria-pressed="false">10:00</button><button type="button" data-time="11:30" aria-pressed="false">11:30</button><button type="button" data-time="14:00" aria-pressed="false">14:00</button><button type="button" data-time="16:30" aria-pressed="false">16:30</button></div></div>
+                <button class="button button-dark booking-submit" type="button" id="booking-submit" disabled>Выберите время <span aria-hidden="true">↗</span></button>
+                <p class="booking-disclaimer">Демонстрация интерфейса. Данные не отправляются.</p>
+              </div>
+              <div class="booking-result" id="booking-result" hidden role="status" aria-live="polite"><div class="result-check">✓</div><h3>Вот как просто!</h3><p>В демонстрации вы выбрали:</p><div class="result-details" id="result-details"></div><p class="result-note">Это пример интерфейса, а не настоящая запись.</p><button class="button button-dark" type="button" id="start-over">Попробовать ещё раз <span aria-hidden="true">↺</span></button></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="steps-section section-pad" id="how-it-works" aria-labelledby="steps-title"><div class="container"><div class="section-kicker">ПУТЬ К ЗАПИСИ</div><h2 id="steps-title">Меньше шагов для гостя.<br /><em>Больше ясности для вас.</em></h2><div class="steps-grid"><article><span class="step-num">01</span><div class="step-art step-art-link">↗</div><h3>Поделитесь ссылкой</h3><p>Разместите страницу записи в Instagram, WhatsApp или на QR-коде в салоне.</p></article><article><span class="step-num">02</span><div class="step-art step-art-calendar">▦</div><h3>Получайте записи</h3><p>Гость выбирает услугу и время, а команда видит бронирование в расписании.</p></article><article><span class="step-num">03</span><div class="step-art step-art-heart">♡</div><h3>Узнавайте клиентов</h3><p>История визитов и заметки помогают заботиться о постоянных гостях.</p></article></div></div></section>
+
+        <section class="pricing-section section-pad" id="pricing" aria-labelledby="pricing-title"><div class="container pricing-grid"><div><div class="section-kicker">ПРОСТАЯ МОДЕЛЬ</div><h2 id="pricing-title">Одна точка.<br /><em>Один понятный ориентир.</em></h2><p>В бизнес-концепции QazBooking рассматривается подписка для салона или мастера. Финальный тариф будет определён при запуске сервиса.</p></div><div class="pricing-card"><div class="pricing-top"><span>РАСЧЁТНЫЙ ОРИЕНТИР</span><span>✳</span></div><div class="price"><strong>10 000 ₸</strong><span>/ месяц за точку</span></div><p>Цена, использованная для оценки рынка в спецификации проекта.</p><div class="pricing-divider"></div><ul><li>Онлайн-запись по ссылке или QR-коду</li><li>Расписание и клиентская база</li><li>Напоминания и аналитика в концепции</li></ul><a class="button button-light" href="#demo">Посмотреть демо <span aria-hidden="true">↗</span></a><small>Расчётная цена, не публичная оферта.</small></div></div></section>
+
+        <section class="faq-section section-pad" id="faq" aria-labelledby="faq-title"><div class="container faq-grid"><div><div class="section-kicker">ЧАСТЫЕ ВОПРОСЫ</div><h2 id="faq-title">Коротко <em>о главном.</em></h2></div><div class="faq-list"><details><summary>Для кого подходит QazBooking?<span aria-hidden="true">+</span></summary><p>Концепция рассчитана на салоны красоты, барбершопы, nail-студии и частных мастеров в Казахстане.</p></details><details><summary>Можно ли записаться через Instagram или WhatsApp?<span aria-hidden="true">+</span></summary><p>Идея сервиса — дать бизнесу ссылку на онлайн-запись, которой можно поделиться в соцсетях и мессенджерах. Демонстрация на этой странице показывает возможный сценарий.</p></details><details><summary>Подключены ли напоминания и платежи?<span aria-hidden="true">+</span></summary><p>Напоминания через WhatsApp, Telegram и SMS, а также локальные платежи и карты описаны в спецификации как планируемые возможности. Эта страница представляет концепт, а не действующий сервис.</p></details><details><summary>Могу ли я оформить настоящую запись здесь?<span aria-hidden="true">+</span></summary><p>Нет. Интерактивная запись выше создана для знакомства с интерфейсом и не сохраняет ваши данные.</p></details></div></div></section>
+
+        <section class="closing-section"><div class="container closing-inner"><span class="closing-star" aria-hidden="true">✳</span><div><div class="section-kicker">QAZBOOKING</div><h2>Пусть запись работает <em>на вас.</em></h2><p>Один спокойный процесс для бизнеса и его гостей.</p></div><a class="button button-light" href="#demo">Открыть демо <span aria-hidden="true">↗</span></a></div></section>
+      </main>
+
+      <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#top" aria-label="QazBooking — наверх"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span>qaz<span class="brand-light">booking</span><span class="brand-dot">.</span></span></a><p>Концепт онлайн-записи и CRM для beauty-бизнеса Казахстана.</p><span>© 2026 QazBooking</span></div></footer>
+    </div>
+  </body>
+</html>
