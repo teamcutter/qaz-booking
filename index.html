@@ -107,6 +107,53 @@
           </div>
         </section>
 
+        <section class="comparison-section section-pad" id="comparison" aria-labelledby="comparison-title">
+          <div class="container comparison-grid">
+            <div class="comparison-copy">
+              <div class="section-kicker">ПОПРОБУЙТЕ СРАВНИТЬ</div>
+              <h2 id="comparison-title">Два пути к записи.<br /><em>Один выбор клиента.</em></h2>
+              <p>Переключите сценарий и посмотрите, что происходит до выбора времени. В карточке показан схематичный пример, ниже - интерактивное демо.</p>
+              <div class="comparison-switch" role="group" aria-label="Сценарий записи">
+                <button type="button" data-scenario="chat" aria-pressed="false">Через переписку</button>
+                <button type="button" data-scenario="booking" class="is-active" aria-pressed="true">По ссылке</button>
+              </div>
+              <div class="comparison-explainer" aria-live="polite">
+                <strong id="comparison-summary-title">Гость видит свободное время</strong>
+                <p id="comparison-summary-text">Он выбирает услугу и подходящее окно в одном интерфейсе.</p>
+              </div>
+              <a class="comparison-link" href="#demo">Пройти интерактивное демо <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="comparison-stage">
+              <div class="comparison-glow" aria-hidden="true"></div>
+              <div class="scenario-phone">
+                <div class="scenario-phone-top"><span class="scenario-phone-mark">✳</span><strong>Студия · пример</strong><span class="scenario-phone-label" id="scenario-phone-label">ОНЛАЙН-ЗАПИСЬ</span></div>
+                <div class="scenario-panel scenario-chat" data-scenario-panel="chat" hidden>
+                  <div class="scenario-day">Диалог в мессенджере</div>
+                  <div class="chat-bubble chat-bubble-client">Здравствуйте! Есть время на маникюр завтра?</div>
+                  <div class="chat-bubble chat-bubble-studio">Здравствуйте! Уточню расписание мастера.</div>
+                  <div class="chat-bubble chat-bubble-studio">Можем предложить 11:30 или 14:00.</div>
+                  <div class="chat-bubble chat-bubble-client">А сколько длится услуга?</div>
+                  <div class="scenario-chat-status"><span></span> Ожидание ответа</div>
+                </div>
+                <div class="scenario-panel scenario-booking" data-scenario-panel="booking">
+                  <div class="scenario-day">Запись по ссылке</div>
+                  <h3>Выберите удобное время</h3>
+                  <div class="scenario-service"><span class="scenario-service-icon">✳</span><span><strong>Маникюр</strong><small>60 минут · 8 000 ₸</small></span><span aria-hidden="true">✓</span></div>
+                  <div class="scenario-date"><span>Ближайший день</span><strong>Завтра</strong></div>
+                  <div class="scenario-time-label">Свободные окна</div>
+                  <div class="scenario-times" role="group" aria-label="Выберите время в примере">
+                    <button type="button" data-preview-time="10:00" aria-pressed="false">10:00</button>
+                    <button type="button" data-preview-time="11:30" aria-pressed="false">11:30</button>
+                    <button type="button" data-preview-time="14:00" class="is-selected" aria-pressed="true">14:00</button>
+                  </div>
+                  <div class="scenario-selection" id="scenario-selection" aria-live="polite">Выбрано 14:00 · без переписки</div>
+                </div>
+              </div>
+              <p class="comparison-caption">Иллюстрация сценария. Настоящая запись здесь не создаётся.</p>
+            </div>
+          </div>
+        </section>
+
         <section class="features-section section-pad" id="possibilities" aria-labelledby="features-title">
           <div class="container">
             <div class="section-heading"><div><div class="section-kicker">ВОЗМОЖНОСТИ</div><h2 id="features-title">Возможности CRM-системы <em>для салона красоты.</em></h2></div><p>Программа для управления салоном красоты объединяет запись на услуги, календарь сотрудников и сведения о клиентах. Напоминания, аналитика и платёжные интеграции - планируемые возможности.</p></div>

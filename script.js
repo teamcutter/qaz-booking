@@ -26,6 +26,37 @@ document.querySelectorAll('a[href="#demo"]').forEach(link => {
   link.addEventListener('click', () => trackGoal('demo_click'));
 });
 
+const scenarioButtons = [...document.querySelectorAll('[data-scenario]')];
+const scenarioPanels = [...document.querySelectorAll('[data-scenario-panel]')];
+const scenarioLabel = document.querySelector('#scenario-phone-label');
+const comparisonSummaryTitle = document.querySelector('#comparison-summary-title');
+const comparisonSummaryText = document.querySelector('#comparison-summary-text');
+
+scenarioButtons.forEach(button => button.addEventListener('click', () => {
+  const isChat = button.dataset.scenario === 'chat';
+  scenarioButtons.forEach(item => {
+    const selected = item === button;
+    item.classList.toggle('is-active', selected);
+    item.setAttribute('aria-pressed', String(selected));
+  });
+  scenarioPanels.forEach(panel => { panel.hidden = panel.dataset.scenarioPanel !== button.dataset.scenario; });
+  scenarioLabel.textContent = isChat ? 'ПЕРЕПИСКА' : 'ОНЛАЙН-ЗАПИСЬ';
+  comparisonSummaryTitle.textContent = isChat ? 'Нужно дождаться ответа' : 'Гость видит свободное время';
+  comparisonSummaryText.textContent = isChat
+    ? 'В примере администратор уточняет график, а клиент задаёт следующий вопрос.'
+    : 'Он выбирает услугу и подходящее окно в одном интерфейсе.';
+}));
+
+const previewTimes = [...document.querySelectorAll('[data-preview-time]')];
+previewTimes.forEach(button => button.addEventListener('click', () => {
+  previewTimes.forEach(item => {
+    const selected = item === button;
+    item.classList.toggle('is-selected', selected);
+    item.setAttribute('aria-pressed', String(selected));
+  });
+  document.querySelector('#scenario-selection').textContent = `Выбрано ${button.dataset.previewTime} · без переписки`;
+}));
+
 let demoStarted = false;
 let demoCompleted = false;
 function recordDemoStart() {

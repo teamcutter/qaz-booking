@@ -91,3 +91,54 @@ h1 em,h2 em{font-style:normal;color:var(--purple)}
 .booking-title p{color:#625b63}
 .booking-disclaimer{font-size:11px;color:#625b63;line-height:1.5}
 .result-link{display:inline-flex;align-items:center;gap:8px;margin-top:18px;color:var(--deep);font-size:12px;font-weight:800;text-decoration:underline;text-decoration-color:#b8a1c7;text-underline-offset:4px}
+
+.comparison-section{position:relative;overflow:hidden;background:radial-gradient(circle at 72% 30%,#654c75 0,#3e304b 46%,#30283a 100%);color:#fff}
+.comparison-grid{display:grid;grid-template-columns:.95fr 1.05fr;align-items:center;gap:70px}
+.comparison-copy{position:relative;z-index:1}
+.comparison-copy .section-kicker{color:#d9bce7}
+.comparison-copy h2{font-size:clamp(39px,4.3vw,62px);line-height:1.14;max-width:590px;margin:20px 0 20px}
+.comparison-copy h2 em{color:#d7b0df}
+.comparison-copy>p{max-width:485px;color:#e0d5e5;font-size:16px;line-height:1.8;margin-bottom:27px}
+.comparison-switch{display:inline-flex;flex-wrap:wrap;gap:7px;padding:6px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(255,255,255,.1)}
+.comparison-switch button{border:0;border-radius:999px;background:transparent;color:#e9dceb;padding:12px 18px;font-size:13px;font-weight:700;transition:background .2s,color .2s,transform .2s}
+.comparison-switch button:hover{transform:translateY(-2px)}
+.comparison-switch button.is-active{background:#fff;color:#4d3b62;box-shadow:0 5px 18px rgba(19,13,26,.15)}
+.comparison-explainer{min-height:95px;margin-top:29px;padding-left:18px;border-left:2px solid #cc9edb}
+.comparison-explainer strong{display:block;font-size:17px;margin-bottom:7px}
+.comparison-explainer p{max-width:430px;color:#dfd2e3;font-size:14px;line-height:1.7;margin:0}
+.comparison-link{display:inline-flex;align-items:center;gap:12px;margin-top:22px;color:#fff;font-size:14px;font-weight:800;text-decoration:underline;text-decoration-color:#c79dd8;text-underline-offset:6px}
+.comparison-link:hover{color:#e5c3ee}
+.comparison-stage{position:relative;display:grid;justify-items:center;padding:8px 0 0}
+.comparison-glow{position:absolute;inset:3% 1% 6%;border:1px solid rgba(255,255,255,.16);border-radius:50%;box-shadow:0 0 0 55px rgba(255,255,255,.035),0 0 0 110px rgba(255,255,255,.025)}
+.scenario-phone{position:relative;z-index:1;width:min(100%,410px);min-height:510px;overflow:hidden;border:7px solid #f3edf4;border-radius:31px;background:#fff;color:#29252d;box-shadow:0 32px 75px rgba(15,10,21,.31);transform:rotate(2deg);transition:transform .3s}
+.scenario-phone:hover{transform:rotate(0)}
+.scenario-phone-top{height:64px;display:flex;align-items:center;gap:9px;padding:0 21px;border-bottom:1px solid #eee9ee;font-size:13px}
+.scenario-phone-mark{color:#765a93;font-size:23px}
+.scenario-phone-label{margin-left:auto;padding:6px 8px;border-radius:999px;background:#f2e9f5;color:#765a93;font-size:8px;font-weight:800;letter-spacing:.8px;white-space:nowrap}
+.scenario-panel{min-height:432px;padding:25px 24px 28px;animation:scenario-appear .32s ease both}
+.scenario-day{text-align:center;color:#a69ca8;font-size:10px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;margin-bottom:22px}
+.scenario-booking h3{font-size:23px;line-height:1.2;letter-spacing:-.04em;margin-bottom:24px}
+.scenario-service{display:flex;align-items:center;gap:11px;padding:12px;border:1px solid #e9ddec;border-radius:13px;background:#faf6fb}
+.scenario-service-icon{display:grid;place-items:center;width:40px;height:40px;flex:none;border-radius:11px;background:#eadbf1;color:#795895;font-size:22px}
+.scenario-service>span:nth-child(2){display:grid;gap:4px;flex:1}
+.scenario-service strong{font-size:13px}
+.scenario-service small{font-size:11px;color:#8a7e8e}
+.scenario-service>span:last-child{color:#765a93;font-size:17px}
+.scenario-date{display:flex;align-items:center;justify-content:space-between;margin:23px 0 18px;color:#837985;font-size:12px}
+.scenario-date strong{color:#3d3248;font-size:13px}
+.scenario-time-label{font-size:12px;font-weight:800;margin-bottom:10px}
+.scenario-times{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.scenario-times button{min-height:45px;border:1px solid #e9deeb;border-radius:10px;background:#fff;color:#514657;font-size:12px;font-weight:800;transition:background .2s,border-color .2s,transform .2s}
+.scenario-times button:hover{border-color:#9e7bb2;transform:translateY(-2px)}
+.scenario-times button.is-selected{border-color:#765a93;background:#765a93;color:#fff}
+.scenario-selection{margin-top:21px;padding:12px;border-radius:10px;background:#eaf2eb;color:#496c52;text-align:center;font-size:12px;font-weight:800}
+.chat-bubble{max-width:83%;padding:12px 15px;border-radius:15px;font-size:13px;line-height:1.5;margin:0 0 13px;box-shadow:0 5px 12px rgba(50,38,53,.06)}
+.chat-bubble-client{margin-left:auto;background:#e9def1;border-bottom-right-radius:4px;color:#43304f}
+.chat-bubble-studio{margin-right:auto;background:#f4f0f3;border-bottom-left-radius:4px;color:#554c57}
+.scenario-chat-status{display:flex;align-items:center;gap:8px;margin-top:26px;color:#8d8290;font-size:11px;font-weight:700}
+.scenario-chat-status span{width:7px;height:7px;border-radius:50%;background:#cba8d5;box-shadow:0 0 0 4px #f3e9f5}
+.comparison-caption{position:relative;z-index:1;color:#e6d8e9;font-size:11px;text-align:center;margin:24px 0 0}
+@keyframes scenario-appear{from{opacity:.3;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:850px){.comparison-grid{grid-template-columns:1fr;gap:45px}.comparison-stage{padding-top:0}.scenario-phone{transform:none}.scenario-phone:hover{transform:none}}
+@media(max-width:600px){.comparison-copy h2{font-size:clamp(35px,8vw,46px)}.comparison-copy>p{font-size:15px}.comparison-switch{width:100%;display:grid;grid-template-columns:1fr 1fr}.comparison-switch button{padding:11px 8px;font-size:12px}.scenario-phone{min-height:0;width:min(100%,380px);border-width:5px}.scenario-panel{min-height:410px;padding:23px 18px 25px}.scenario-phone-top{padding:0 17px}.comparison-glow{inset:6% 7%}.comparison-caption{line-height:1.5}}
+@media(prefers-reduced-motion:reduce){.scenario-panel{animation:none}}
