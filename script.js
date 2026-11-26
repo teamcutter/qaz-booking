@@ -16,13 +16,23 @@ menuToggle.addEventListener('click', () => {
 mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
 document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
 
+function trackGoal(name) {
+  if (typeof window.ym === 'function') {
+    window.ym(113593239, 'reachGoal', name);
+  }
+}
+
 document.querySelectorAll('a[href="#demo"]').forEach(link => {
-  link.addEventListener('click', () => {
-    if (typeof window.ym === 'function') {
-      window.ym(113593239, 'reachGoal', 'demo_click');
-    }
-  });
+  link.addEventListener('click', () => trackGoal('demo_click'));
 });
+
+let demoStarted = false;
+let demoCompleted = false;
+function recordDemoStart() {
+  if (demoStarted) return;
+  demoStarted = true;
+  trackGoal('demo_start');
+}
 
 function makeSingleSelect(selector, onSelect) {
   const buttons = [...document.querySelectorAll(selector)];
@@ -37,8 +47,8 @@ function makeSingleSelect(selector, onSelect) {
   return buttons;
 }
 
-const services = makeSingleSelect('.service-option');
-const days = makeSingleSelect('.day-option');
+const services = makeSingleSelect('.service-option', recordDemoStart);
+const days = makeSingleSelect('.day-option', recordDemoStart);
 const firstDemoDay = new Date();
 firstDemoDay.setHours(12, 0, 0, 0);
 firstDemoDay.setDate(firstDemoDay.getDate() + 1);
@@ -54,8 +64,9 @@ days.forEach((button, index) => {
 });
 const submit = document.querySelector('#booking-submit');
 const times = makeSingleSelect('.time-options button', () => {
+  recordDemoStart();
   submit.disabled = false;
-  submit.innerHTML = 'Показать результат <span aria-hidden="true">↗</span>';
+  submit.innerHTML = 'Показать итог выбора <span aria-hidden="true">↗</span>';
 });
 
 submit.addEventListener('click', () => {
@@ -66,6 +77,10 @@ submit.addEventListener('click', () => {
   document.querySelector('#result-details').textContent = `${service.dataset.service} · ${service.dataset.duration} · ${service.dataset.price} · ${day.dataset.day}, ${time.dataset.time}`;
   document.querySelector('#booking-flow').hidden = true;
   document.querySelector('#booking-result').hidden = false;
+  if (!demoCompleted) {
+    demoCompleted = true;
+    trackGoal('demo_complete');
+  }
   document.querySelector('#start-over').focus();
 });
 
