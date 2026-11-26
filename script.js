@@ -57,6 +57,36 @@ previewTimes.forEach(button => button.addEventListener('click', () => {
   document.querySelector('#scenario-selection').textContent = `Выбрано ${button.dataset.previewTime} · без переписки`;
 }));
 
+const calculatorRequests = document.querySelector('#calc-requests');
+const calculatorMinutes = document.querySelector('#calc-minutes');
+const calculatorNumberFormat = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 1 });
+
+function requestWord(count) {
+  if (count % 100 >= 11 && count % 100 <= 14) return 'запросов';
+  if (count % 10 === 1) return 'запрос';
+  if (count % 10 >= 2 && count % 10 <= 4) return 'запроса';
+  return 'запросов';
+}
+
+function updateCalculator() {
+  const requests = Number(calculatorRequests.value);
+  const minutes = Number(calculatorMinutes.value);
+  const totalMinutes = requests * minutes * 22;
+  document.querySelector('#calc-requests-value').textContent = String(requests);
+  document.querySelector('#calc-minutes-value').textContent = String(minutes);
+  document.querySelector('#calc-hours').textContent = calculatorNumberFormat.format(totalMinutes / 60);
+  document.querySelector('#calc-workdays').textContent = calculatorNumberFormat.format(totalMinutes / 480);
+  document.querySelector('#calc-formula').textContent = `${requests} ${requestWord(requests)} × ${minutes} мин × 22 рабочих дня ÷ 60`;
+  [calculatorRequests, calculatorMinutes].forEach(input => {
+    const fill = (Number(input.value) - Number(input.min)) / (Number(input.max) - Number(input.min)) * 100;
+    input.style.setProperty('--fill', `${fill}%`);
+  });
+}
+
+calculatorRequests.addEventListener('input', updateCalculator);
+calculatorMinutes.addEventListener('input', updateCalculator);
+updateCalculator();
+
 let demoStarted = false;
 let demoCompleted = false;
 function recordDemoStart() {
