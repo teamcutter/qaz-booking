@@ -100,6 +100,93 @@ const times = makeSingleSelect('.time-options button', () => {
   submit.innerHTML = 'Показать итог выбора <span aria-hidden="true">↗</span>';
 });
 
+const demoPersonas = {
+  salon: {
+    label: 'САЛОН КРАСОТЫ',
+    message: 'Пример записи для салона красоты',
+    services: [
+      { name: 'Маникюр', duration: '60 мин', price: '8 000 ₸', icon: '✳' },
+      { name: 'Стрижка', duration: '45 мин', price: '6 000 ₸', icon: '✦' }
+    ],
+    times: ['10:00', '11:30', '14:00', '16:30']
+  },
+  barber: {
+    label: 'БАРБЕРШОП',
+    message: 'Пример записи в барбершоп',
+    services: [
+      { name: 'Мужская стрижка', duration: '45 мин', price: '7 000 ₸', icon: '✂' },
+      { name: 'Оформление бороды', duration: '30 мин', price: '4 000 ₸', icon: '◆' }
+    ],
+    times: ['09:30', '12:00', '15:00', '18:00']
+  },
+  nail: {
+    label: 'NAIL-СТУДИЯ',
+    message: 'Пример записи в nail-студию',
+    services: [
+      { name: 'Маникюр', duration: '60 мин', price: '8 000 ₸', icon: '✳' },
+      { name: 'Педикюр', duration: '90 мин', price: '11 000 ₸', icon: '◇' }
+    ],
+    times: ['10:30', '13:00', '15:30', '17:00']
+  },
+  solo: {
+    label: 'ЧАСТНЫЙ МАСТЕР',
+    message: 'Пример записи к частному мастеру',
+    services: [
+      { name: 'Макияж', duration: '60 мин', price: '10 000 ₸', icon: '♡' },
+      { name: 'Укладка', duration: '45 мин', price: '7 000 ₸', icon: '✦' }
+    ],
+    times: ['09:00', '11:00', '14:30', '17:30']
+  }
+};
+
+function resetDemoFlow() {
+  document.querySelector('#booking-result').hidden = true;
+  document.querySelector('#booking-flow').hidden = false;
+  document.querySelector('#result-details').textContent = '';
+  times.forEach(button => {
+    button.classList.remove('selected');
+    button.setAttribute('aria-pressed', 'false');
+  });
+  submit.disabled = true;
+  submit.innerHTML = 'Выберите время <span aria-hidden="true">↗</span>';
+}
+
+const personaButtons = [...document.querySelectorAll('[data-persona]')];
+personaButtons.forEach(button => button.addEventListener('click', () => {
+  recordDemoStart();
+  if (button.classList.contains('is-active')) return;
+
+  const persona = demoPersonas[button.dataset.persona];
+  personaButtons.forEach(item => {
+    const selected = item === button;
+    item.classList.toggle('is-active', selected);
+    item.setAttribute('aria-pressed', String(selected));
+  });
+  document.querySelector('#persona-message').textContent = persona.message;
+  document.querySelector('#booking-context').textContent = `${persona.label} • ПРИМЕР`;
+
+  services.forEach((serviceButton, index) => {
+    const service = persona.services[index];
+    serviceButton.dataset.service = service.name;
+    serviceButton.dataset.duration = service.duration;
+    serviceButton.dataset.price = service.price;
+    serviceButton.querySelector('.service-symbol').textContent = service.icon;
+    serviceButton.querySelector('strong').textContent = service.name;
+    serviceButton.querySelector('small').textContent = `${service.duration} · ${service.price}`;
+    serviceButton.classList.toggle('selected', index === 0);
+    serviceButton.setAttribute('aria-pressed', String(index === 0));
+  });
+  days.forEach((dayButton, index) => {
+    dayButton.classList.toggle('selected', index === 0);
+    dayButton.setAttribute('aria-pressed', String(index === 0));
+  });
+  times.forEach((timeButton, index) => {
+    timeButton.dataset.time = persona.times[index];
+    timeButton.textContent = persona.times[index];
+  });
+  resetDemoFlow();
+}));
+
 submit.addEventListener('click', () => {
   const service = services.find(button => button.classList.contains('selected'));
   const day = days.find(button => button.classList.contains('selected'));
@@ -116,10 +203,6 @@ submit.addEventListener('click', () => {
 });
 
 document.querySelector('#start-over').addEventListener('click', () => {
-  document.querySelector('#booking-result').hidden = true;
-  document.querySelector('#booking-flow').hidden = false;
-  times.forEach(button => { button.classList.remove('selected'); button.setAttribute('aria-pressed', 'false'); });
-  submit.disabled = true;
-  submit.innerHTML = 'Выберите время <span aria-hidden="true">↗</span>';
+  resetDemoFlow();
   times[0].focus();
 });
