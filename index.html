@@ -212,7 +212,33 @@
                 <button class="button button-dark booking-submit" type="button" id="booking-submit" disabled>Выберите время <span aria-hidden="true">↗</span></button>
                 <p class="booking-disclaimer">Это демо: цены и свободное время приведены для примера, запись не создаётся, данные не отправляются.</p>
               </div>
-              <div class="booking-result" id="booking-result" hidden role="status" aria-live="polite"><div class="result-check">✓</div><h3>Вот что увидит клиент</h3><p>В демонстрации вы выбрали:</p><div class="result-details" id="result-details"></div><p class="result-note">Это пример интерфейса. Настоящая запись не создана.</p><button class="button button-dark" type="button" id="start-over">Попробовать ещё раз <span aria-hidden="true">↺</span></button><a class="result-link" href="#possibilities">Посмотреть возможности CRM <span aria-hidden="true">→</span></a></div>
+              <div class="booking-result" id="booking-result" hidden role="status" aria-live="polite"><div class="result-check">✓</div><h3>Вот что увидит клиент</h3><p>В демонстрации вы выбрали:</p><div class="result-details" id="result-details"></div><p class="result-note">Это пример интерфейса. Настоящая запись не создана.</p><button class="button button-dark" type="button" id="start-over">Попробовать ещё раз <span aria-hidden="true">↺</span></button><a class="result-link" href="#team-calendar">Посмотреть расписание администратора <span aria-hidden="true">→</span></a></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="team-calendar-section section-pad" id="team-calendar" aria-labelledby="team-calendar-title">
+          <div class="container team-calendar-grid">
+            <div class="team-calendar-copy">
+              <div class="section-kicker">ДЕМО ДЛЯ АДМИНИСТРАТОРА</div>
+              <h2 id="team-calendar-title">Теперь взгляните <em>на расписание салона.</em></h2>
+              <p>Выберите мастера и день. Нажмите на свободное окно, чтобы добавить пример записи: счётчики и расписание обновятся сразу.</p>
+              <div class="team-calendar-guide"><span>01</span><div><strong>Откройте нужный день</strong><small>У каждого мастера своё расписание.</small></div></div>
+              <div class="team-calendar-guide"><span>02</span><div><strong>Добавьте или отмените запись</strong><small>Свободное окно меняет состояние одним нажатием.</small></div></div>
+              <p class="team-calendar-status" id="team-calendar-status" role="status" aria-live="polite">Нажмите на свободное окно, чтобы добавить пример записи.</p>
+              <small class="team-calendar-disclaimer">Это интерактивный пример. Записи не создаются на сервере и исчезнут после обновления страницы.</small>
+            </div>
+            <div class="team-calendar-app" aria-label="Демонстрация расписания администратора">
+              <div class="team-calendar-app-top"><div class="team-calendar-brand"><span aria-hidden="true">▦</span><div><strong>Расписание студии</strong><small>Вид администратора</small></div></div><span class="team-calendar-badge">ДЕМО</span></div>
+              <div class="team-calendar-app-body">
+                <div class="team-calendar-control-label">Мастер</div>
+                <div class="team-calendar-masters" role="group" aria-label="Выберите мастера"><button type="button" data-calendar-master="aigerim" class="is-active" aria-pressed="true"><span class="team-calendar-avatar">А</span> Айгерим</button><button type="button" data-calendar-master="dana" aria-pressed="false"><span class="team-calendar-avatar">Д</span> Дана</button></div>
+                <div class="team-calendar-control-label">День</div>
+                <div class="team-calendar-days" role="group" aria-label="Выберите день"><button type="button" data-calendar-day="0" class="is-active" aria-pressed="true">Завтра</button><button type="button" data-calendar-day="1" aria-pressed="false">Через день</button><button type="button" data-calendar-day="2" aria-pressed="false">Через два дня</button></div>
+                <div class="team-calendar-summary"><div><small>Расписание на</small><strong id="team-calendar-date">завтра</strong></div><div class="team-calendar-counts"><span>Занято <strong id="team-calendar-busy">2</strong></span><span>Свободно <strong id="team-calendar-free">4</strong></span></div></div>
+                <div class="team-calendar-slots" id="team-calendar-slots" aria-label="Окна выбранного мастера"><p>Загрузка примера расписания...</p></div>
+                <button class="team-calendar-reset" id="team-calendar-reset" type="button">Сбросить пример расписания <span aria-hidden="true">↺</span></button>
+              </div>
             </div>
           </div>
         </section>

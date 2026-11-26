@@ -236,3 +236,112 @@ document.querySelector('#start-over').addEventListener('click', () => {
   resetDemoFlow();
   times[0].focus();
 });
+
+const calendarMasters = { aigerim: 'Айгерим', dana: 'Дана' };
+const calendarTimes = ['09:00', '10:30', '12:00', '14:00', '15:30', '17:00'];
+const calendarBooked = new Set([
+  'aigerim:0:09:00', 'aigerim:0:14:00',
+  'aigerim:1:10:30', 'aigerim:1:15:30',
+  'aigerim:2:12:00',
+  'dana:0:10:30', 'dana:0:17:00',
+  'dana:1:09:00', 'dana:1:12:00',
+  'dana:2:14:00', 'dana:2:15:30'
+]);
+const calendarDemoBookings = new Set();
+const calendarMasterButtons = [...document.querySelectorAll('[data-calendar-master]')];
+const calendarDayButtons = [...document.querySelectorAll('[data-calendar-day]')];
+const calendarDates = calendarDayButtons.map((_, index) => {
+  const date = new Date(firstDemoDay);
+  date.setDate(firstDemoDay.getDate() + index);
+  return date;
+});
+let activeCalendarMaster = 'aigerim';
+let activeCalendarDay = 0;
+
+calendarDayButtons.forEach((button, index) => {
+  const date = calendarDates[index];
+  const weekday = new Intl.DateTimeFormat('ru-RU', { weekday: 'short' }).format(date).replace('.', '').toUpperCase();
+  button.textContent = `${weekday} ${date.getDate()}`;
+  button.setAttribute('aria-label', new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long' }).format(date));
+});
+
+function renderTeamCalendar(statusText) {
+  const dateText = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long' }).format(calendarDates[activeCalendarDay]);
+  calendarMasterButtons.forEach(button => {
+    const active = button.dataset.calendarMaster === activeCalendarMaster;
+    button.classList.toggle('is-active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+  calendarDayButtons.forEach(button => {
+    const active = Number(button.dataset.calendarDay) === activeCalendarDay;
+    button.classList.toggle('is-active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+  document.querySelector('#team-calendar-date').textContent = dateText;
+
+  let busyCount = 0;
+  const slotButtons = calendarTimes.map(time => {
+    const key = `${activeCalendarMaster}:${activeCalendarDay}:${time}`;
+    const occupied = calendarBooked.has(key);
+    const demo = calendarDemoBookings.has(key);
+    if (occupied || demo) busyCount += 1;
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = `team-calendar-slot${occupied ? ' is-busy' : demo ? ' is-demo' : ''}`;
+    button.dataset.calendarTime = time;
+    button.disabled = occupied;
+    button.setAttribute('aria-label', `${time}: ${occupied ? 'занято' : demo ? 'демо-запись, нажмите для отмены' : 'свободно, нажмите для добавления записи'}`);
+
+    const timeLabel = document.createElement('span');
+    timeLabel.className = 'team-calendar-slot-time';
+    timeLabel.textContent = time;
+    const detail = document.createElement('span');
+    detail.className = 'team-calendar-slot-detail';
+    const title = document.createElement('strong');
+    title.textContent = occupied ? 'Занято' : demo ? 'Демо-запись' : 'Свободное окно';
+    const hint = document.createElement('small');
+    hint.textContent = occupied ? 'Уже в расписании' : demo ? 'Нажмите, чтобы отменить' : 'Нажмите, чтобы добавить';
+    detail.append(title, hint);
+    const action = document.createElement('span');
+    action.className = 'team-calendar-slot-action';
+    action.setAttribute('aria-hidden', 'true');
+    action.textContent = occupied ? '✓' : demo ? '×' : '+';
+    button.append(timeLabel, detail, action);
+
+    if (!occupied) {
+      button.addEventListener('click', () => {
+        if (demo) {
+          calendarDemoBookings.delete(key);
+          renderTeamCalendar(`Демо-запись на ${time} отменена.`);
+        } else {
+          calendarDemoBookings.add(key);
+          renderTeamCalendar(`Демо-запись на ${time} добавлена для мастера ${calendarMasters[activeCalendarMaster]}.`);
+        }
+        [...document.querySelectorAll('#team-calendar-slots button')]
+          .find(item => item.dataset.calendarTime === time)?.focus();
+      });
+    }
+    return button;
+  });
+
+  document.querySelector('#team-calendar-slots').replaceChildren(...slotButtons);
+  document.querySelector('#team-calendar-busy').textContent = String(busyCount);
+  document.querySelector('#team-calendar-free').textContent = String(calendarTimes.length - busyCount);
+  if (statusText) document.querySelector('#team-calendar-status').textContent = statusText;
+}
+
+calendarMasterButtons.forEach(button => button.addEventListener('click', () => {
+  activeCalendarMaster = button.dataset.calendarMaster;
+  renderTeamCalendar(`Показано расписание мастера ${calendarMasters[activeCalendarMaster]}.`);
+}));
+calendarDayButtons.forEach(button => button.addEventListener('click', () => {
+  activeCalendarDay = Number(button.dataset.calendarDay);
+  const dateText = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long' }).format(calendarDates[activeCalendarDay]);
+  renderTeamCalendar(`Показано расписание на ${dateText}.`);
+}));
+document.querySelector('#team-calendar-reset').addEventListener('click', () => {
+  calendarDemoBookings.clear();
+  renderTeamCalendar('Пример расписания сброшен.');
+});
+renderTeamCalendar();
